@@ -1,6 +1,6 @@
 public class Materiale {
 
-    /*  -idBiblioteca */
+    /* -idBiblioteca */
 
     protected String codiceInterno;
     private String titolo;
@@ -40,15 +40,11 @@ public class Materiale {
     public String getCodiceInterno() {
         return codiceInterno;
     }
-    
+
     @Override
     public String toString() {
         return "Materiale [codiceInterno=" + codiceInterno + ", titolo=" + titolo + ", genere=" + genere
                 + ", disponibile=" + disponibile + "]";
     }
-
-
-
-    
 
 }

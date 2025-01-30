@@ -61,56 +61,57 @@ public class Biblioteca {
     }
 
     public static void aggiungiLibro() {
-            Scanner scanner = new Scanner(System.in);
-            System.out.print("Titolo: ");
-            String titoloLibro = scanner.nextLine();
-            System.out.print("Genere: ");
-            String genereLibro = scanner.nextLine();
-            System.out.println("È disponibile?");
-            boolean disponibile = scanner.nextBoolean();
-            scanner.nextLine();
-            System.out.print("Autore: ");
-            String autore = scanner.nextLine();
-            System.out.print("Editore: ");
-            String editoreLibro = scanner.nextLine();
-            System.out.print("ISBN: ");
-            String isbn = scanner.nextLine();
-            System.out.print("Numero pagine: ");
-            int numeroPagine = scanner.nextInt();
-            scanner.nextLine();
-            aggiungiMateriale(new Libro(titoloLibro, genereLibro, disponibile, autore, editoreLibro, isbn, numeroPagine));
-            System.out.println("Libro aggiunto con successo!");
-            
-        }
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("Titolo: ");
+        String titoloLibro = scanner.nextLine();
+        System.out.print("Genere: ");
+        String genereLibro = scanner.nextLine();
+        System.out.println("È disponibile?");
+        boolean disponibile = scanner.nextBoolean();
+        scanner.nextLine();
+        System.out.print("Autore: ");
+        String autore = scanner.nextLine();
+        System.out.print("Editore: ");
+        String editoreLibro = scanner.nextLine();
+        System.out.print("ISBN: ");
+        String isbn = scanner.nextLine();
+        System.out.print("Numero pagine: ");
+        int numeroPagine = scanner.nextInt();
+        scanner.nextLine();
+        aggiungiMateriale(new Libro(titoloLibro, genereLibro, disponibile, autore, editoreLibro, isbn, numeroPagine));
+        System.out.println("Libro aggiunto con successo!");
 
-        public static void aggiungiRivista() {
-            Scanner scan = new Scanner(System.in);
-            System.out.print("Titolo: ");
-            String titoloRivista = scan.nextLine();
-            System.out.print("Genere: ");
-            String genereRivista = scan.nextLine();
-            System.out.println("È disponibile?");
-            boolean disponibile = scan.nextBoolean();
-            scan.nextLine();
-            System.out.print("Editore: ");
-            String editoreRivista = scan.nextLine();
-            System.out.print("Anno: ");
-            int anno = scan.nextInt();
-            scan.nextLine();
-            System.out.print("Numero volume: ");
-            int numeroVolume = scan.nextInt();
-            scan.nextLine();
-            aggiungiMateriale(new Rivista(titoloRivista, genereRivista, disponibile, editoreRivista, anno, numeroVolume));
-            System.out.println("Rivista aggiunta con successo!");
-        }
+    }
+
+    public static void aggiungiRivista() {
+        Scanner scan = new Scanner(System.in);
+        System.out.print("Titolo: ");
+        String titoloRivista = scan.nextLine();
+        System.out.print("Genere: ");
+        String genereRivista = scan.nextLine();
+        System.out.println("È disponibile?");
+        boolean disponibile = scan.nextBoolean();
+        scan.nextLine();
+        System.out.print("Editore: ");
+        String editoreRivista = scan.nextLine();
+        System.out.print("Anno: ");
+        int anno = scan.nextInt();
+        scan.nextLine();
+        System.out.print("Numero volume: ");
+        int numeroVolume = scan.nextInt();
+        scan.nextLine();
+        aggiungiMateriale(new Rivista(titoloRivista, genereRivista, disponibile, editoreRivista, anno, numeroVolume));
+        System.out.println("Rivista aggiunta con successo!");
+    }
 
     public static boolean verificaDisponibilità(String codiceInterno) {
 
         for (Materiale m : materiali) {
-            if(m.getCodiceInterno().equals(codiceInterno)) {
+            if (m.getCodiceInterno().equals(codiceInterno)) {
                 return m.disponibile;
             }
-        } return false;
+        }
+        return false;
     }
 
     public static void mostraCatalogo() {
@@ -121,24 +122,35 @@ public class Biblioteca {
 
     public static void effettuaPrestito(String codiceInterno) {
         for (Materiale m : materiali) {
-            if(m.getCodiceInterno().equals(codiceInterno)) {
+            if (m.getCodiceInterno().equals(codiceInterno)) {
                 m.setDisponibile(false);
                 System.out.println("Il prestito è stato effettuato.");
             }
         }
-        }
+    }
 
     public static void restituisciPrestito(String codiceInterno) {
 
         for (Materiale m : materiali) {
-            if(m.getCodiceInterno().equals(codiceInterno)) {
+            if (m.getCodiceInterno().equals(codiceInterno)) {
                 m.setDisponibile(true);
                 System.out.println("Hai restituito il materiale.");
             }
         }
 
     }
-    public static void trovaCollocazione() {
-        
+
+    public static String trovaCollocazione(String codiceInterno) {
+        for (Materiale m : materiali) {
+            if (m.getCodiceInterno().equals(codiceInterno)) {
+                getbId();
+            }
+        }
+        return null;
+    }
+
+    @Override
+    public String toString() {
+        return "Biblioteca [via=" + via + ", civico=" + civico + ", cap=" + cap + ", città=" + città + "]";
     }
 }

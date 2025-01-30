@@ -2,7 +2,6 @@ import java.util.Scanner;
 
 public class Libro extends Materiale {
 
-    
     private static int contatoreLibri = 0;
     private String autore;
     private String editore;

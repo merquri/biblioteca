@@ -78,7 +78,9 @@ public class App {
                     Biblioteca.mostraCatalogo();
                     break;
                 case 6:
-                    System.out.println("6. Trova Collocazione");
+                    System.out.println("Inserisci il codice del materiale che vuoi verificare:");
+                    String codCollocazione = sc.nextLine();
+                    Biblioteca.trovaCollocazione(codCollocazione);
                     break;
                 case 7:
                     risposta = false;
